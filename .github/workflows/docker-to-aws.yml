@@ -21,7 +21,7 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: iniciar sesion en aws ECR
+      - name: iniciar sesion aws ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
