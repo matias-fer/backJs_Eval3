@@ -1,15 +1,17 @@
-  name: Publicar imagen docker
+name: Publicar imagen docker
 
-  on:
+on:
   push:
     branches:
-    - main
+      - main
 
-  jobs:
+jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Crear archivo .env desde GitHub Secrets
+        run: echo "${{ secrets.ENV_FILE }}" > .env
       - name: Descargar repo
         uses: actions/checkout@v4
 
@@ -24,4 +26,4 @@
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ms.backpy.products
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ms.backjs:latest

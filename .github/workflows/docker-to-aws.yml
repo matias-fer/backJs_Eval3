@@ -3,13 +3,14 @@ name: Publicar imagen docker en aws
 on:
   push:
     branches:
-    - aws
+      - aws
 
 jobs:
   build-and-push-aws:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Descargar codigo repo
+      - name: Descargar codigo del repo
         uses: actions/checkout@v4
 
       - name: Configurar credenciales de aws
@@ -30,4 +31,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ steps.login-ecr.outputs.registry }}/ms.backpy.products:latest
+            ${{ steps.login-ecr.outputs.registry }}/ms.backjs:latest
