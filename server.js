@@ -162,7 +162,7 @@ app.delete('/api/users/:id', async (req, res) => {
     }
 });
 
-// Start server
+
 initDB().then(() => {
     app.listen(port,'0.0.0.0', () => {
         console.log(`Backend 1 (User Service) running on port ${port}`);
